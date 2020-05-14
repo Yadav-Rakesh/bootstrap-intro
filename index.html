@@ -38,9 +38,14 @@
                         </li>
                     </ul>
                     <span class="navbar-text">
+                    <!----
                         <a data-toggle="modal" data-target="#loginModal">
-                        <span class="fa fa-sign-in"></span> Login</a>
-                    </span>
+                            <span class="fa fa-sign-in"></span> Login</span>
+                        </a>
+                    -->
+                    <a id="linktologin">
+                        <span class="fa fa-sign-in" id="linktologin"> Login</span>
+                    </a>
                 </div>
                 
             </div>
@@ -136,10 +141,10 @@
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-2 col-form-label"><strong>Date and Time</strong></label>
-                                <div class="col-lg-5">
+                                <div class="col-lg-4">
                                     <input onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" id="date" name="date" placeholder="Date">
                                 </div>
-                                <div class="col-lg-5">
+                                <div class="col-lg-4">
                                     <input onfocus="(this.type='time')" onblur="(this.type='text')" class="form-control" id="time" name="time" placeholder="Time">
                                 </div>
                             </div>
@@ -179,8 +184,10 @@
                     </div>
                     <div class="col-12 col-sm-3 align-self-center">
                         <div class="d-flex justify-content-center">
+                            <!--
                             <a role="button" class="btn btn-block nav-link btn-warning" data-toggle="modal" data-target="#reservetable" >Reserve Table</a>
-                            
+                            -->
+                            <a role="button" class="btn btn-block nav-link btn-warning" id="reserveButton"  >Reserve Table</a>
                         </div>    
                     </div>
                     
@@ -422,6 +429,8 @@
         <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
         <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- javascript code to pause and play the carousel -->
         <script>
             $("#carouselButton").click(function(){
                 if ($("#carouselButton").children("span").hasClass('fa-pause')) {
@@ -434,6 +443,16 @@
                     $("#carouselButton").children("span").removeClass('fa-play');
                     $("#carouselButton").children("span").addClass('fa-pause');                    
                 }
+            });
+        </script>
+
+        <!-- JavaScript code to trigger the login and reservetable modals-->
+        <script>
+            $("#reserveButton").click(function(){
+                $("#reservetable").modal();
+            });
+            $("#linktologin").click(function(){
+                $("#loginModal").modal();
             });
         </script>
     </body>
